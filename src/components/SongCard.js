@@ -1,14 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom"; 
 
-const songTypeClasses = {
-  Assault: "icon military",
-  Defender: "icon shield",
-  Support: "icon plus circle",
-  Medic: "icon ambulance",
-  Witch: "icon magic",
-  Captain: "icon star",
-};y
+
 
 function SongCard({ song, addToPlaylist, removeFromPlaylist }) {
   const handleClick = () => {
@@ -43,11 +36,10 @@ function SongCard({ song, addToPlaylist, removeFromPlaylist }) {
           </Link>
           <div className="content">
             <div className="header">
-              {bot.name}
-              <i className={songTypeClasses[song.song_class]} />
+              {song.name}
             </div>
             <div className="meta text-wrap">
-              <small>{bot.catchphrase}</small>
+              <small>{song.catchphrase}</small>
             </div>
           </div>
           <div className="extra content">
