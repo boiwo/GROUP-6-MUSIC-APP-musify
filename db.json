@@ -1,5 +1,5 @@
 {
-    "Songs": [
+    "songs": [
         {
             "id" : 1,
             "name" : "meet the grahams",
@@ -52,7 +52,7 @@
             "date of release" : "December, 14th, 2009",
             "producer" : "Kanye West",
             "lyrics" : "Kanye West, ELton John",
-            "cover" : "https://s3.eu-west-1.amazonaws.com/mg.platform/song-page-images/kanye-west/good-morning/ab67616d0000b273e6ec3b96d448f24facafd376?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA26VACQK3MNLD4YFK%2F20240507%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20240507T231000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Signature=7ea41fd11957a7fc8e7f383ab69ec7416b6aff1144ef8a3f42297f334b1d2dc0"
+            "cover" : "https://t2.genius.com/unsafe/252x252/https%3A%2F%2Fimages.genius.com%2Fb9d6cf24ceb76fa5d8ebf02569e16e2f.1000x1000x1.png"
         },
         {
             "id" : 7,
