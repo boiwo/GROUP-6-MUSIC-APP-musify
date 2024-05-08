@@ -1,4 +1,4 @@
-import React, from "react";
+import React from "react";
 import SongCollection from "./SongCollection";
 
 function SongsPage({songPlaylist, songs, addToPlaylist, removeFromPlaylist}) {
