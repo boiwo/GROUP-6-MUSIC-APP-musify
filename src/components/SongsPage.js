@@ -5,6 +5,7 @@ import Playlist from "./Playlist";
 function SongsPage({songPlaylist, songs, addToPlaylist, removeFromPlaylist}) {
   return (
     <div>
+      <h1>Hello</h1>
       <Playlist songs = {songPlaylist}/>
       <SongCollection songs = {songs} addToPlaylist = {()=>addToPlaylist} removeFromPlaylist={removeFromPlaylist}/>
     </div>
