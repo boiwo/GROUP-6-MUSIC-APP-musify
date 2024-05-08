@@ -8,7 +8,7 @@ function SearchBar() {
   useEffect(() => {
     const fetchSongs = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/Songs`);
+        const response = await fetch(`https://json-server-1-vs69.onrender.com/songs`);
         const data = await response.json();
         setSongs(data);
       } catch (error) {

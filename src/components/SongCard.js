@@ -11,7 +11,7 @@ function SongCard({ song, addToPlaylist, removeFromPlaylist }) {
   const handleRemove = () => {
     removeFromPlaylist(song.id);
   
-    fetch(`/${song.id}`, {
+    fetch(`https://json-server-1-vs69.onrender.com/songs${song.id}`, {
       method: "DELETE",
     })
       .then((response) => {
@@ -22,14 +22,14 @@ function SongCard({ song, addToPlaylist, removeFromPlaylist }) {
       .catch((error) => {
         console.error("Error deleting bot from backend:", error);
         // Revert the change in the frontend if deletion from backend fails
-        addToArmy(bot);
+        ;
       });}
 
   return (
     <div className="ui column">
      
         <div className="ui card" key={song.id} onClick={handleClick}>
-        <Link to={`/PROJECTREPO/bot/${song.id}`}>
+        <Link to={`GROUP-6-MUSIC-APP-musify/${song.id}`}>
           <div className="image">
             <img alt="oh no!" src={song.avatar_url} />
           </div>
