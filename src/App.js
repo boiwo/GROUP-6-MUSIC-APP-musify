@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import SongsPage from "./SongsPage";
-import Playlist from "./Playlist";
+import Playlist from "./components/Playlist";
+import SongsPage from "./components/SongsPage";
 ;
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
 
   const addToPlaylist = (song) => {
     if (!songPlaylist.some((PlaylistSong) => PlaylistSong.id ===song.id)) {
-      setsongPlaylist([...songPlaylist, song]);
+      setSongPlaylist([...songPlaylist, song]);
     }
   };
 
@@ -20,7 +20,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetch("/songs")
+    fetch("https://json-server-1-vs69.onrender.com/songs")
     .then(response => response.json())
     .then(data => setSongs(data));
   },[songPlaylist]);
@@ -28,7 +28,7 @@ function App() {
   return (
    
       <Routes>
-        <Route path="/" element={<BotsPage songs = {songs} songPlaylist={songPlaylist} addToPlaylist = {addToArmy} removeFromPlaylist={removeFromPlaylist}/>} />
+        <Route path="/" element={<SongsPage songs = {songs} songPlaylist={songPlaylist} addToPlaylist = {addToPlaylist} removeFromPlaylist={removeFromPlaylist}/>} />
         <Route path="//song/:id" element={<Playlist addToPlaylist = {addToPlaylist} />} />
       </Routes>
   

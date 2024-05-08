@@ -1,5 +1,6 @@
 import React from "react";
 import SongCollection from "./SongCollection";
+import Playlist from "./Playlist";
 
 function SongsPage({songPlaylist, songs, addToPlaylist, removeFromPlaylist}) {
   return (

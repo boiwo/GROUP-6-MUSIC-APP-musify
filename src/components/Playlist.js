@@ -6,7 +6,7 @@ function Playlist() {
 
   useEffect(() => {
     function fetchPlaylist() {
-      fetch('http://localhost:3000/playlist')
+      fetch('https://json-server-1-vs69.onrender.com/songs')
         .then(function(response) {
           if (!response.ok) {
             throw new Error('Failed to fetch playlist');
@@ -21,11 +21,11 @@ function Playlist() {
         });
     }
     fetchPlaylist();
-  }, []);
+  }, [newSong]);
 
   function addSong() {
     if (newSong.trim() !== '') {
-      fetch('http://localhost:3000/playlist', {
+      fetch('https://json-server-1-vs69.onrender.com/playlist', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ function Playlist() {
             throw new Error('Failed to add song');
           }
           setNewSong('');
-          fetchPlaylist(); // Fetch updated playlist after adding a song
+           
         })
         .catch(function(error) {
           console.error('Error adding song:', error);
@@ -46,14 +46,14 @@ function Playlist() {
   }
 
   function removeSong(songId) {
-    fetch(`http://localhost:3000/playlist/${songId}`, {
+    fetch(`https://json-server-1-vs69.onrender.com/songs${songId}`, {
       method: 'DELETE',
     })
       .then(function(response) {
         if (!response.ok) {
           throw new Error('Failed to remove song');
         }
-        fetchPlaylist(); // Fetch updated playlist after removing a song
+         
       })
       .catch(function(error) {
         console.error('Error removing song:', error);
