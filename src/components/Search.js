@@ -1,40 +1,45 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from 'react';
 
-function Search(){
-    const [songs , setsongs] = useState([])
+function SearchBar() {
+  const [query, setQuery] = useState('');
+  const [songs, setSongs] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
 
-function handleSearch(event){
-    const hint = event.target.value
-    if (hint.length > 0) {
-        const filter = songs.filter((song) => {
-            return song.name.toLowerCase().includes(hint.toLowerCase())
-        })
-        if (filter.length > 0) {
-        setsongs([...filter])
-        }
-      
-    }else {
-        setsongs([...songs])
-    }}
+  const handleSearch = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/Songs`);
+      const data = await response.json();
+      setSongs(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
-useEffect(() => {
-fetch ("http://localhost:3000/Songs")
-      .then((resp) => resp.json())
-      .then (data => setsongs(data))
+  const handleChange = (event) => {
+    setQuery(event.target.value);
+    const results = songs.filter(song =>
+      song.name.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    setSearchResults(results);
+  };
 
-})
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Search for a song..."
+        value={query}
+        onChange={handleChange}
+      />
+      <button onClick={handleSearch}>Search</button>
 
-
-return(
-<div>
-    <form>
-<input type="text" placeholder="Search your song here"  onChange={handleSearch}                        />
-
-    </form>
-
-
-</div>
-)
-
+      <ul>
+        {searchResults.map(song => (
+          <li key={song.id}>{song.name} - {song.artist}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
-export default Search
+
+export default SearchBar;
