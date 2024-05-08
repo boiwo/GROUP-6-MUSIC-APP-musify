@@ -16,4 +16,4 @@ function SongCollection({songs, addToPlaylist, removeFromPlaylist,}) {
   );
 }
 
-export default BotCollection;
+export default SongCollection;
