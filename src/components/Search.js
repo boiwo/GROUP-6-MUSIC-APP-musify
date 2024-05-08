@@ -29,7 +29,8 @@ function SearchBar() {
 
   return (
     <div>
-      <input
+      <input 
+      className='searchbar'
         type="text"
         placeholder="Search for a song..."
         value={query}
