@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function SearchBar() {
   const [query, setQuery] = useState('');
   const [songs, setSongs] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
 
-  const handleSearch = async () => {
-    try {
-      const response = await fetch(`http://localhost:3000/Songs`);
-      const data = await response.json();
-      setSongs(data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+  useEffect(() => {
+    const fetchSongs = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/Songs`);
+        const data = await response.json();
+        setSongs(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchSongs();
+  }, []);
 
   const handleChange = (event) => {
     setQuery(event.target.value);
@@ -31,13 +35,16 @@ function SearchBar() {
         value={query}
         onChange={handleChange}
       />
-      <button onClick={handleSearch}>Search</button>
 
-      <ul>
+      
         {searchResults.map(song => (
-          <li key={song.id}>{song.name} - {song.artist}</li>
+          <li key={song.id}>
+            <strong>{song.name}</strong> - {song.artist}
+            <br />
+            <img src={song.cover} alt={song.name} style={{ maxWidth: '100px' }} />
+          </li>
         ))}
-      </ul>
+      
     </div>
   );
 }
