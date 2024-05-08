@@ -58,7 +58,7 @@ function SongCard({ song, addToPlaylist, removeFromPlaylist }) {
             <span>
               <div className="ui center aligned segment basic">
                 <button className="ui mini red button" onClick={handleRemove}>
-                  x
+                  delete song
                 </button>
               </div>
             </span>
