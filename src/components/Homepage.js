@@ -25,9 +25,7 @@ function HomePage({ setPlaylist }) {
     setFilteredSongs(filtered);
   }, [songs, searchTerm]);
 
-  const addToPlaylist = (song) => {
-    setPlaylist((prevPlaylist) => [...prevPlaylist, song]);
-  };
+  
 
   return (
     <div className="homepage-container">
@@ -44,12 +42,12 @@ function HomePage({ setPlaylist }) {
       <h2 className='H2'>SOME OF YOUR GREATEST HITS!</h2>
       <ul>
         {filteredSongs.map(song => (
-          <li key={song.id}>
+          <li  key={song.id}>
             <img src={song.cover} alt={song.name} />
-            <Link  to={`/song/${song.id}`}>{song.name}</Link>
+            <Link className='linkname' to={`/song/${song.id}`}>{song.name}</Link>
             
             <Link to={`/song/${song.id}`}>
-              <button>View Details</button>
+              <button>DETAILS</button>
             </Link>
           </li>
         ))}

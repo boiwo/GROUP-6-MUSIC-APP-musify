@@ -23,7 +23,7 @@ function PlaylistPage({ playlist, setPlaylist }) {
 
   return (
     <div className="playlist-container">
-      <h1>Playlist</h1>
+      <h1>WELCOME TO YOUR PLAYLIST</h1>
       <ul>
         {playlist.map(song => (
           <li key={song.id} className="song-item">
