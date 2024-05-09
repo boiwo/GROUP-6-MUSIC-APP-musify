@@ -29,6 +29,7 @@ function HomePage({ setPlaylist }) {
 
   return (
     <div className="homepage-container">
+      <div className='upper-container'>
       <h1 className='header'>WELCOME TO MUSIFY</h1>
       <div className="search-container">
         <input
@@ -38,8 +39,10 @@ function HomePage({ setPlaylist }) {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="search-input"
         />
+        </div>
       </div>
-      <h2 className='H2'>SOME OF YOUR GREATEST HITS!</h2>
+      <h2 className='H2'>SOME OF YOUR GREATEST HITS!  </h2> 
+      <h3 className='H3'> discover new favorites  and create personalized playlists to suit their mood and taste.       </h3> 
       <ul>
         {filteredSongs.map(song => (
           <li  key={song.id}>
