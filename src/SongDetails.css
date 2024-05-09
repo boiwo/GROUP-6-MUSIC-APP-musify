@@ -1,0 +1,63 @@
+.song-details-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .song-details-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .song-details-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .song-details-info {
+    text-align: left;
+  }
+  
+  .song-details-heading {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .song-details-text {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  
+  .song-details-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .add-to-playlist-button,
+  .back-to-home-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .add-to-playlist-button {
+    background-color: #007bff;
+  }
+  
+  .back-to-home-button {
+    background-color: #28a745;
+  }
+  
+  .add-to-playlist-button:hover,
+  .back-to-home-button:hover {
+    opacity: 0.8;
+  }
+  
