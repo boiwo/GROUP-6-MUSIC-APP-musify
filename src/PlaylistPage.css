@@ -3,6 +3,8 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    background-color: white;
+    margin-top: 50px;
   }
   
   .playlist-container h1 {
@@ -14,6 +16,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
+    background-color: bisque;
   }
   
   .song-details {
@@ -40,6 +43,7 @@
   .back-buttons button {
     margin-right: 10px;
     background-color: #007bff;
+    width: 40%;
     color: white;
     border: none;
     border-radius: 5px;

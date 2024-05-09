@@ -1,14 +1,19 @@
 .song-details-container {
-    max-width: 800px;
+    max-width: 500px;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+    background-color: aliceblue;
+    margin-top: 50px;
   }
   
   .song-details-title {
     font-size: 2rem;
     margin-bottom: 20px;
+ 
   }
+
+  
   
   .song-details-content {
     display: flex;
@@ -35,7 +40,10 @@
     height: 300px;
     border-radius: 8px;
     margin-bottom: 20px;
+    margin-left: 50px;
   }
+
+  
   
   .add-to-playlist-button,
   .back-to-home-button {
@@ -61,3 +69,16 @@
     opacity: 0.8;
   }
   
+.title{
+ margin-left: 20px;
+ text-transform: uppercase;
+}
+
+
+.songname{
+  margin-left: 25px;
+}
+
+.image{
+   margin-left: 100px;
+}

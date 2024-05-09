@@ -23,12 +23,12 @@ function SongDetailsPage({ setPlaylist }) {
 
   return (
     <div className="song-details-container"> {/* Apply CSS class */}
-      <h1>Song Details</h1>
-      <h2>{song.name}</h2>
+      <h1 className='title'>Song Details</h1>
+      <h2 className='songname'>{song.name}</h2>
       <p>Artist: {song.owner}</p>
       <p>Lyric: {song.lyrics}</p>
       <p>Producer: {song.producer}</p>
-      <img src={song.cover} alt={song.name} />
+      <img className='image' src={song.cover} alt={song.name} />
       <button onClick={() => addToPlaylist(song)}>Add to Playlist</button>
       <Link to="/playlist">
         <button>Go to Playlist</button>
