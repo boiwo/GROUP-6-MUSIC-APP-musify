@@ -12,11 +12,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />}>
+     
+        <Route path="/GROUP-6-MUSIC-APP-musify" element={<HomePage />}>
           
         </Route>
-        <Route path="/song/:id" element={<SongDetailsPage setPlaylist={setPlaylist}/>} />
-        <Route path="/playlist" element = {<PlaylistPage  playlist={playlist} setPlaylist={setPlaylist}/>}>
+        <Route path="/GROUP-6-MUSIC-APP-musify/song/:id" element={<SongDetailsPage setPlaylist={setPlaylist}/>} />
+        <Route path="/GROUP-6-MUSIC-APP-musify/playlist" element = {<PlaylistPage  playlist={playlist} setPlaylist={setPlaylist}/>}>
         
         </Route>
       </Routes>

@@ -30,10 +30,10 @@ function SongDetailsPage({ setPlaylist }) {
       <p>Producer: {song.producer}</p>
       <img className='image' src={song.cover} alt={song.name} />
       <button onClick={() => addToPlaylist(song)}>Add to Playlist</button>
-      <Link to="/playlist">
+      <Link to="/GROUP-6-MUSIC-APP-musify/playlist">
         <button>Go to Playlist</button>
       </Link>
-      <Link to="/">
+      <Link to="/GROUP-6-MUSIC-APP-musify">
         <button className="back-to-home-button">Go back to Homepage</button> {/* Apply CSS class */}
       </Link>
     </div>

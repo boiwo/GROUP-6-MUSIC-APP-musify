@@ -47,9 +47,9 @@ function HomePage({ setPlaylist }) {
         {filteredSongs.map(song => (
           <li  key={song.id}>
             <img src={song.cover} alt={song.name} />
-            <Link className='linkname' to={`/song/${song.id}`}>{song.name}</Link>
+            <Link className='linkname' to={`/GROUP-6-MUSIC-APP-musify/song/${song.id}`}>{song.name}</Link>
             
-            <Link to={`/song/${song.id}`}>
+            <Link  to={`/GROUP-6-MUSIC-APP-musify/song/${song.id}`}>
               <button>DETAILS</button>
             </Link>
           </li>
