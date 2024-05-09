@@ -1,89 +1,49 @@
-import React, { useState, useEffect } from 'react';
+// PlaylistPage.js
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../PlaylistPage.css'; // Import the CSS file
 
-function Playlist() {
-  const [songs, setSongs] = useState([]);
-  const [newSong, setNewSong] = useState('');
+function PlaylistPage({ playlist, setPlaylist }) {
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    function fetchPlaylist() {
-      fetch('https://json-server-1-vs69.onrender.com/songs')
-        .then(function(response) {
-          if (!response.ok) {
-            throw new Error('Failed to fetch playlist');
-          }
-          return response.json();
-        })
-        .then(function(data) {
-          setSongs(data);
-        })
-        .catch(function(error) {
-          console.error('Error fetching playlist:', error);
-        });
-    }
-    fetchPlaylist();
-  }, [newSong]);
+  // Function to remove a song from the playlist
+  const removeFromPlaylist = (id) => {
+    setPlaylist(prevPlaylist => prevPlaylist.filter(song => song.id !== id));
+  };
 
-  function addSong() {
-    if (newSong.trim() !== '') {
-      fetch('https://json-server-1-vs69.onrender.com/playlist', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ song: newSong }),
-      })
-        .then(function(response) {
-          if (!response.ok) {
-            throw new Error('Failed to add song');
-          }
-          setNewSong('');
-           
-        })
-        .catch(function(error) {
-          console.error('Error adding song:', error);
-        });
-    }
-  }
+  // Function to go back to the previous page (SongDetailsPage)
+  const goBack = () => {
+    navigate(-1); // Go back one step in history
+  };
 
-  function removeSong(songId) {
-    fetch(`https://json-server-1-vs69.onrender.com/songs${songId}`, {
-      method: 'DELETE',
-    })
-      .then(function(response) {
-        if (!response.ok) {
-          throw new Error('Failed to remove song');
-        }
-         
-      })
-      .catch(function(error) {
-        console.error('Error removing song:', error);
-      });
-  }
+  // Function to navigate back to the home page
+  const goToHomePage = () => {
+    navigate('/'); // Navigate to the home page
+  };
 
   return (
-    <div>
-      <h2>Playlist</h2>
+    <div className="playlist-container">
+      <h1>Playlist</h1>
       <ul>
-        {songs.map(function(song) {
-          return (
-            <li key={song.id}>
-              {song.title}
-              <button onClick={() => removeSong(song.id)}>Remove</button>
-            </li>
-          );
-        })}
+        {playlist.map(song => (
+          <li key={song.id} className="song-item">
+            <div className="song-details">
+              <img src={song.cover} alt={song.name} className="song-image" /> {/* Display the song image */}
+              <div>
+                <p>{song.name}</p>
+                <p>{song.owner}</p>
+              </div>
+            </div>
+            <button className="remove-button" onClick={() => removeFromPlaylist(song.id)}>Remove</button>
+          </li>
+        ))}
       </ul>
-      <input
-        type="text"
-        value={newSong}
-        onChange={function(e) {
-          setNewSong(e.target.value);
-        }}
-        placeholder="Add a new song"
-      />
-      <button onClick={addSong}>Add Song</button>
+      <div className="back-buttons">
+        <button onClick={goBack}>Back to Song Details</button>
+        <button onClick={goToHomePage}>Back to Home Page</button>
+      </div>
     </div>
   );
 }
 
-export default Playlist;
+export default PlaylistPage;

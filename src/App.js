@@ -1,37 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import Playlist from "./components/Playlist";
-import SongsPage from "./components/SongsPage";
-;
+// App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './components/Homepage';
+import SongDetailsPage from './components/SongsPage';
+import PlaylistPage from './components/Playlist';
+import './App.css'
 
 function App() {
-  const  [songs, setSongs] = useState([]);
-  const [songPlaylist, setSongPlaylist] = useState([]);
-
-  const addToPlaylist = (song) => {
-    if (!songPlaylist.some((PlaylistSong) => PlaylistSong.id ===song.id)) {
-      setSongPlaylist([...songPlaylist, song]);
-    }
-  };
-
-  const removeFromPlaylist = (songId) => {
-    const updatedSongPlaylist = songPlaylist.filter((song) => song.id !== songId);
-    setSongPlaylist(updatedSongPlaylist);
-  };
-
-  useEffect(() => {
-    fetch("https://json-server-1-vs69.onrender.com/songs")
-    .then(response => response.json())
-    .then(data => setSongs(data));
-  },[songPlaylist]);
+  const [playlist, setPlaylist] = useState([]);
 
   return (
-   
+    <Router>
       <Routes>
-        <Route path="/" element={<SongsPage songs = {songs} songPlaylist={songPlaylist} addToPlaylist = {addToPlaylist} removeFromPlaylist={removeFromPlaylist}/>} />
-        <Route path="//song/:id" element={<Playlist addToPlaylist = {addToPlaylist} />} />
+        <Route path="/" element={<HomePage />}>
+          
+        </Route>
+        <Route path="/song/:id" element={<SongDetailsPage setPlaylist={setPlaylist}/>} />
+        <Route path="/playlist" element = {<PlaylistPage  playlist={playlist} setPlaylist={setPlaylist}/>}>
+        
+        </Route>
       </Routes>
-  
+    </Router>
   );
 }
 
