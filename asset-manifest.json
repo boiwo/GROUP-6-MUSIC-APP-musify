@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/GROUP-6-MUSIC-APP-musify/static/css/main.b31d31eb.css",
+    "main.js": "/GROUP-6-MUSIC-APP-musify/static/js/main.9c789839.js",
+    "static/js/453.537e0907.chunk.js": "/GROUP-6-MUSIC-APP-musify/static/js/453.537e0907.chunk.js",
+    "index.html": "/GROUP-6-MUSIC-APP-musify/index.html",
+    "main.b31d31eb.css.map": "/GROUP-6-MUSIC-APP-musify/static/css/main.b31d31eb.css.map",
+    "main.9c789839.js.map": "/GROUP-6-MUSIC-APP-musify/static/js/main.9c789839.js.map",
+    "453.537e0907.chunk.js.map": "/GROUP-6-MUSIC-APP-musify/static/js/453.537e0907.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b31d31eb.css",
+    "static/js/main.9c789839.js"
+  ]
+}
